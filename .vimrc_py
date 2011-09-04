@@ -1,0 +1,3 @@
+
+"for pydiction
+let g:pydiction_location="~/.vim/python/pydiction-1.2/complete-dict"
