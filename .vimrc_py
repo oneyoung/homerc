@@ -4,3 +4,7 @@ let g:pydiction_location="~/.vim/python/pydiction-1.2/complete-dict"
 
 "in Python, Tab is not recommanded, so replace tab with 4 spaces
 autocmd FileType python source ~/.vim/script/indent/python.vim
+"menu/shortcuts to work with python files
+autocmd FileType python source ~/.vim/script/python_fn.vim
+"for python code folding
+autocmd FileType python source ~/.vim/script/python_fold.vim
