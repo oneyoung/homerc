@@ -1,3 +1,6 @@
 
 "for pydiction
 let g:pydiction_location="~/.vim/python/pydiction-1.2/complete-dict"
+
+"in Python, Tab is not recommanded, so replace tab with 4 spaces
+autocmd FileType python setlocal et sta sw=4 sts=4
