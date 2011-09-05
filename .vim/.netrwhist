@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/oneyoung'
+let g:netrw_dirhist_2='/home/oneyoung/android/A9500/code/new/hboot-ste/config'
+let g:netrw_dirhist_3='/home/oneyoung/android/A9500/code/new/hboot-ste/common'
+let g:netrw_dirhist_4='/home/oneyoung/android/marvell/src/new/kernel_patches'
+let g:netrw_dirhist_5='/home/oneyoung/android/huashan/kernel_omap_new'

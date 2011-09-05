@@ -1,0 +1,2 @@
+cecscope.vba: call delete('/home/oneyoung/.vim/plugin/cecscope.vim')|call delete('/home/oneyoung/.vim/doc/cecscope.txt')
+DrawIt.vba: call delete('/home/oneyoung/.vim/plugin/DrawItPlugin.vim')|call delete('/home/oneyoung/.vim/plugin/cecutil.vim')|call delete('/home/oneyoung/.vim/autoload/DrawIt.vim')|call delete('/home/oneyoung/.vim/doc/DrawIt.txt')
