@@ -177,3 +177,6 @@ au BufNewFile,BufRead *.t2t set ft=txt2tags
 "display the tab
 set list
 set listchars=tab:>.,trail:-
+
+"for python config
+source .vimrc_py
