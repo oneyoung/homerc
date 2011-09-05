@@ -179,4 +179,4 @@ set list
 set listchars=tab:>.,trail:-
 
 "for python config
-source .vimrc_py
+source ~/.vimrc_py
