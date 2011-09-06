@@ -1,4 +1,5 @@
 #!/bin/bash
+script_path=~/scripts
 
 find . -name "*.h" -o -name "*.c" -o -name "*.cpp" -o -name "*.S" -o -name "*.mk" -o -name Makefile -o -name "*.lds" -o -name "*.inc" -o -name "*.make" > cscope.file
 cscope -bkq -i cscope.file
