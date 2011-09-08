@@ -15,6 +15,7 @@ setlocal nolisp
 setlocal autoindent
 setlocal indentexpr=GetPythonIndent(v:lnum)
 setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
+setlocal sw=4 sts=4 sta
 
 let s:maxoff = 50
 
