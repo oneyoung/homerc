@@ -20,6 +20,12 @@ map <F4> <ESC>/\<<C-R>=expand("<cword>")<CR>\><CR>
 "file type
 filetype on
 
+"for JavaBrowser
+"let JavaBrowser_Sort_Type = "order"
+let JavaBrowser_Compact_Format = 1
+let jbrowser_cpp_ctags_args = '--language-force=c++ --c++-types=fc'
+let jbrowser_cpp_tag_types = 'class function'
+
 set hlsearch
 set mouse=a
 "for vimwiki
