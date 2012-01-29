@@ -8,3 +8,7 @@ autocmd FileType python source ~/.vim/script/indent/python.vim
 autocmd FileType python source ~/.vim/script/python_fn.vim
 "for python code folding
 autocmd FileType python source ~/.vim/script/python_fold.vim
+
+" for syntax highlight
+let python_highlight_all=1
+autocmd FileType python syntax keyword Special self
