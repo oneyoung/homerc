@@ -30,7 +30,7 @@ set hlsearch
 set mouse=a
 "for vimwiki
 " vimwiki
-map <C-P> <ESC>o{{{class="brush: cpp" ><CR><ESC>gpo}}}<ESC>      
+map <C-P> <ESC>o{{{class="brush: cpp" ><CR><ESC>gpo}}}<ESC>
 "create the link page
 map <C-L> <ESC>dwi[[<ESC>pbea]]<ESC>
 "bold the word
@@ -186,3 +186,36 @@ set listchars=tab:>.,trail:-
 
 "for python config
 source ~/.vimrc_py
+
+function Fix_coding_style()
+	" remove the trail space or tabs
+	%s/[\t ]\+$//ge
+	" add a space before line start with "*"
+	%s/^*/ */ge
+	" "){" --> ") {"
+	%s/){/) {/ge
+	" add a space between "var{" --> "var {"
+	%s/\(\w\)\@<={/ {/ge
+	" "func ()" --> "func()"
+	%s/\(\w\)\@<= \+(/(/ge
+	" "array []" --> "array[]"
+	%s/\(\w\)\@<= \+\[/\[/ge
+	" "if(" --> "if ("
+	%s/\(if\|for\|while\|switch\)\@<=(/ (/ge
+	" remove space before "(" and after ")"
+	%s/\((\@<= \+\|\( \+\))\@=\)//ge
+	" remove space before "[" and after "]"
+	%s/\([\@<= \+\|\( \+\)]\@=\)//ge
+	" "}var" --> "} var"
+	%s/\(}\)\w\@=/} /ge
+	" "}\n else" --> "} else"
+	%s/}\n[\t ]\+else/} else/ge
+	" change space indent to tab
+	%s/^    /\t/ge
+	let loop = 15
+	while loop > 0
+		%s/\(^\t\+\)\@<=    /\t/ge
+		" %s/\t    /\t\t/ge
+		let loop = loop - 1
+	endwhile
+endfunction
