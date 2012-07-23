@@ -192,6 +192,9 @@ function Fix_coding_style()
 	%s/[\t ]\+$//ge
 	" add a space before line start with "*"
 	%s/^*/ */ge
+	" "/*comment*/" --> "/* comment */"
+	%s/\/\*\(\w\)\@=/\/\* /ge
+	%s/\(\w\)\@<=\*\// \*\//ge
 	" "){" --> ") {"
 	%s/){/) {/ge
 	" add a space between "var{" --> "var {"
@@ -212,6 +215,16 @@ function Fix_coding_style()
 	%s/}\n[\t ]\+else/} else/ge
 	" change space indent to tab
 	%s/^    /\t/ge
+	" ",var" --> ", var"
+	%s/\(,\)\S\@=/, /ge
+	" add space between operator: + -
+	%s/\(\w\|)\|}\) *\(+\|-\|=\) *\(\w\|(\|{\)/\1 \2 \3/ge
+	%s/\(\w\|)\|}\) *\(==\|!=|\|\/=\|\*=\|-=\|+=\|<<=\|>>=\|^=\||=\|&=\) *\(\w\|(\|{\)/\1 \2 \3/ge
+	%s/\(\w\|)\|}\) *\(&&\|||\) *\(\w\|(\|{\)/\1 \2 \3/ge
+	%s/\(\w\|)\|}\) *\(>\|>=\|<\|<=\) *\(\w\|(\|{\)/\1 \2 \3/ge
+	%s/return \+- \+/return -/ge
+	%s/#include \+< \+/#include </ge
+	%s/< \(\w\+@\)\@=/</ge
 	let loop = 15
 	while loop > 0
 		%s/\(^\t\+\)\@<=    /\t/ge
