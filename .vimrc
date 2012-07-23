@@ -232,3 +232,6 @@ function Fix_coding_style()
 		let loop = loop - 1
 	endwhile
 endfunction
+
+" a command to empty quickfix window content
+command Cclear call setqflist([])
