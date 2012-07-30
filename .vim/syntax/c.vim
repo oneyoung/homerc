@@ -670,6 +670,9 @@ if version >= 508 || !exists("did_c_syn_inits")
 endif
 hi Normal		gui=NONE guifg=#000000 guibg=Ivory1
 
+syn match cFuntions display "[a-zA-Z_][a-zA-Z_0-9]\{-1,}\s\{-0,}(\{1}"ms=s,me=e-1                                                   
+hi def link cFuntions Special
+
 let b:current_syntax = "c"
 
 " vim: ts=8
