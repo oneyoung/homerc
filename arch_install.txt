@@ -23,6 +23,37 @@ exit
 }}}
 从这之后就进入正常的安装过程了 ^_^
 
+==> install in new iso.
+1. configure network if dhcp failed
+	ip link set eth0 up
+	ip addr show dev eth0
+	ip addr add 192.168.1.100/24 dev eth0
+	ip route add default via 192.168.1.1
+2. add dns support
+	echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
+3. format the disk
+	mkfs -t ext4 /dev/sda1
+
+4. choose the fast source
+	/etc/pacman.d/mirrorlist
+5. install the base and base-devel
+	mount /dev/sda1 /mnt/root/
+	pacstrap /mnt base base-devel
+6. install grub
+	pacstrap /mnt grub-bios
+	pacstrap /mnt syslinux
+7. configue
+	arch-chroot /mnt/root
+	ln -s /usr/share/zoneinfo/Asaia/Shanghai /etc/localtime
+	config the below file
+	/etc/fstab
+	/etc/locale.gen
+	/etc/locale.conf
+	=> run: locale-gen
+	/etc/mkinitcpio.conf
+	=> run: mkinitcpio -p linux
+
 == 2. ==
 # 建立一个普通帐号，直接使用以前Ubuntu下的home目录：
 {{{
@@ -44,11 +75,20 @@ sudo pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils
 sudo pacman -S xf86-video-ati
 }}}
 
+#install yaourt
+add archlinuxfr to /etc/pacman.conf
+"
+ [archlinuxfr]
+  Server = http://repo-fr.archlinuxcn.org/$arch
+"
+
+
 # install input method (fcitx)
 {{{
 	sudo pacman -Sy fcitx
 }}}
 * make sure export the following variables to the environment
+* better to put this in .initrc
 {{{
 export XIM=fcitx
 export XIM_PROGRAM=fcitx
@@ -89,7 +129,7 @@ sudo pacman -S net-tools wireless_tools wap_supplicant
 
 # enable "comand not found" hint
 {{{
-sudo pacman -Sy pkg-tools
+sudo pacman -Sy pkgtools
 # and set CMD_SEARCH_ENABLE=1 in /etc/pkgtools/pkgfile.conf
 # then:
 sudo pkgfile --update
@@ -100,11 +140,11 @@ source /etc/profile #if you don't want to logout again
 * install alsa and add the user to audio group
 {{{
 	pacman -S alsa-utils alsa-lib
-	gpasswd -a using audio
+	gpasswd -a oneyoung audio
 }}}
 * add alsa daemo to rc.conf
 {{{
-      DAEMONS=（syslog-ng network netfs crond alsa)
+      DAEMONS=（syslog-ng network netfs crond alsa wicd dbus)
 }}}}
 
 * alsaconf配置声卡，生成/etc/asound。state文件。保存以后的音量调节数据：
@@ -139,7 +179,7 @@ pacman -S volumeicon
 * auto mount USB mass storage
 # install udiskie:
 {{{
-	sudo yaourt -S udiskie
+	sudo yaourt -S udiskie #now change to python2-udiskie
 	sudo pacman -S consolekit #for permission control
 }}}
 # start udiskie daemon:
@@ -165,3 +205,23 @@ pacman -S volumeicon
 
 # install thunder download tool
 -- sudo yaourt -S wine-thunder
+
+#install login manager
+pacman -S slim
+-- edit /etc/slim.conf
+"session awesome"
+-- add slim to login session
+/etc/inittab
+chnage line "id:3:initdefault:" to "id:5:initdefault:"
+find the line "x:5:respawen..." and replace the cmd with "/usr/bin/slim > /dev/null 2>&1"
+
+#install vmplayer
+-- download vmplayer from offical website
+$ chmod +x VMware-<edition>-<version>.<release>.<architecture>.bundle
+# ./VMware-<edition>-<version>.<release>.<architecture>.bundle --console
+-- start "vmwared" in /etc/rc.conf
+-- install hal for vmwared "yaourt -S hal"
+-- USB support
+$ ./VMware-<edition>-<version>.<release>.<architecture>.bundle --console --extract /tmp
+# cp /tmp/vmware-usbarbitrator/etc/init.d/vmware-USBArbitrator /etc/rc.d/
+
