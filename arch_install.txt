@@ -46,6 +46,7 @@ exit
 7. configue
 	arch-chroot /mnt/root
 	ln -s /usr/share/zoneinfo/Asaia/Shanghai /etc/localtime
+	# then add time zone to rc.conf "TIMEZONE="Asia/Shanghai""
 	config the below file
 	/etc/fstab
 	/etc/locale.gen
@@ -129,7 +130,7 @@ sudo pacman -S net-tools wireless_tools wap_supplicant
 
 # enable "comand not found" hint
 {{{
-sudo pacman -Sy pkgtools
+sudo pacman -Sy pkgtools pkgfile
 # and set CMD_SEARCH_ENABLE=1 in /etc/pkgtools/pkgfile.conf
 # then:
 sudo pkgfile --update
@@ -144,7 +145,7 @@ source /etc/profile #if you don't want to logout again
 }}}
 * add alsa daemo to rc.conf
 {{{
-      DAEMONS=（syslog-ng network netfs crond alsa wicd dbus)
+      DAEMONS=(syslog-ng dbus crond wicd alsa vmwared)
 }}}}
 
 * alsaconf配置声卡，生成/etc/asound。state文件。保存以后的音量调节数据：
@@ -225,3 +226,31 @@ $ chmod +x VMware-<edition>-<version>.<release>.<architecture>.bundle
 $ ./VMware-<edition>-<version>.<release>.<architecture>.bundle --console --extract /tmp
 # cp /tmp/vmware-usbarbitrator/etc/init.d/vmware-USBArbitrator /etc/rc.d/
 
+
+# install 32bit support for ARCH_64
+1. uncomment the line
+[multilib]
+SigLevel = PackageRequired
+Include = /etc/pacman.d/mirrorlist
+2. install the packages
+sudo pacman -Sy lib32-zlib lib32-ncurses lib32-readline gcc-libs-multilib gcc-multilib lib32-gcc-libs
+
+# font config
+yaourt -Sy cairo-ubuntu fontconfig-lcd fontconfig-ubuntu freetype2-ubuntu libxft-ubuntu
+
+#install kupfer to replace gnome-do
+yaourt -S kupfer
+
+# android build support
+!!!the packages in ARCH Linux is too new!!!
+subversion -- 1.6 (addition: sudo ln -s /usr/lib/libdb.so /usr/lib/libdb-5.2.so)
+	mali use subversion in its makefile
+make -- 3.81
+gcc -- 4.4
+	1. install gcc44 from aur,
+	2. modify the PKGBUILD, remove the option --disable-multilib, add --with-multilib-list=m32,m64
+	3. install package with pacman -Uf gcc.pag to ignore file conflic in /usr/lib32
+	4. better to reinstall gcc-multilib to resotre file conflict
+	5. make link: ln -s /usr/lib32 /lib32 to avoid ld error
+	6. add link to gcc and g++ with gcc-4.4 and make sure import the path before /usr/bin
+kmod -- arch version is also has problem (it will search usr/lib/ instead of lib/)
