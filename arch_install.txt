@@ -254,3 +254,10 @@ gcc -- 4.4
 	5. make link: ln -s /usr/lib32 /lib32 to avoid ld error
 	6. add link to gcc and g++ with gcc-4.4 and make sure import the path before /usr/bin
 kmod -- arch version is also has problem (it will search usr/lib/ instead of lib/)
+
+#install virtualbox
+1. install virutalbox
+	pacman -S virtualbox virtualbox-guest-iso virtualbox-host-modules
+2. load vbox modules at bootup
+	automode: create a file, for example "vbox.conf" under dir /etc/modules-load.d/ with the content "vboxdrv"
+	manual way: modprobe vboxdrv
