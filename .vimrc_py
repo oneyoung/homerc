@@ -12,3 +12,5 @@ autocmd FileType python source ~/.vim/script/python_fold.vim
 " for syntax highlight
 let python_highlight_all=1
 autocmd FileType python syntax keyword Special self
+
+pyfile ~/.vim/python/stream.py
