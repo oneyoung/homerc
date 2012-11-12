@@ -1,5 +1,7 @@
+# ARCH install guide
 
-## 准备ISO 文件引导
+#### 准备ISO 文件引导
+
 ##### 下载ISO文件
 我下的是201108 i686版本
 
@@ -73,7 +75,7 @@ configure timezone
 	/etc/mkinitcpio.conf
 	=> run: mkinitcpio -p linux
 
-## Configure
+#### Configure
 
 ##### add usr
 建立一个普通帐号，直接使用以前Ubuntu下的home目录：
