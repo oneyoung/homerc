@@ -253,4 +253,10 @@ gcc -- 4.4
 	4. better to reinstall gcc-multilib to resotre file conflict
 	5. make link: ln -s /usr/lib32 /lib32 to avoid ld error
 	6. add link to gcc and g++ with gcc-4.4 and make sure import the path before /usr/bin
+libgl -- 32 bits: pacman -S lib32-libgl
 kmod -- arch version is also has problem (it will search usr/lib/ instead of lib/)
+rlimit -- not found in davlink, add <sys/resource.h>
+
+
+#bash completion
+pacman -S bash-completion
