@@ -1,6 +1,6 @@
 
 "key mapping
-map <F12>  <ESC>:TlistToggle<CR>
+map <F12>  <ESC>:TagbarToggle<CR>
 map <F8>  <ESC>:NERDTreeToggle<CR>
 map <F7> <ESC>:NERDTreeFind<CR> 
 map <S-F11>  <ESC>:cs add cscope.out<CR>
