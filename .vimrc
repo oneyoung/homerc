@@ -210,4 +210,4 @@ command Cclear call setqflist([])
 
 " ###############>>autocmd<<###################
 " filetype support for django template
-autocmd BufNewFile,BufRead *.django,*.htmldjango set ft=htmldjango
+autocmd BufNewFile,BufRead *.html,*.django,*.htmldjango set ft=htmldjango
