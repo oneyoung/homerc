@@ -206,3 +206,8 @@ endfunction
 " ###############>>commands<<###################
 " a command to empty quickfix window content
 command Cclear call setqflist([])
+
+
+" ###############>>autocmd<<###################
+" filetype support for django template
+autocmd BufNewFile,BufRead *.django,*.htmldjango set ft=htmldjango
