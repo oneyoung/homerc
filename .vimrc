@@ -202,6 +202,13 @@ function Fix_coding_style()
 	endwhile
 endfunction
 
+function Html_autocmd()
+	setlocal expandtab
+	setlocal nolisp
+	setlocal autoindent
+	setlocal sw=2 sts=2 sta
+	set ft=htmldjango
+endfunction
 
 " ###############>>commands<<###################
 " a command to empty quickfix window content
@@ -210,4 +217,4 @@ command Cclear call setqflist([])
 
 " ###############>>autocmd<<###################
 " filetype support for django template
-autocmd BufNewFile,BufRead *.html,*.django,*.htmldjango set ft=htmldjango
+autocmd BufNewFile,BufRead *.html,*.django,*.htmldjango  call Html_autocmd
