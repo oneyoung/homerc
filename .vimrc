@@ -21,7 +21,7 @@ set foldmethod=indent
 set autoindent
 set smartindent
 set noexpandtab
-"set shiftwidth=4
+set ts=4
 set smarttab
 set fdm=indent
 set fdc=4
@@ -218,3 +218,4 @@ command Cclear call setqflist([])
 " ###############>>autocmd<<###################
 " filetype support for django template
 autocmd BufNewFile,BufRead *.html,*.django,*.htmldjango  call Html_autocmd
+autocmd BufNewFile,BufRead *.c,*.h  set ts=8
