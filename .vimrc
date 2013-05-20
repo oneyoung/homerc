@@ -143,6 +143,8 @@ set listchars=tab:>.,trail:-
 	map <F12>  <ESC>:TagbarToggle<CR>
 	let g:tagbar_left = 1
 	let g:tagbar_width = 25
+	let g:tagbar_sort = 0
+	let g:tagbar_autoshowtag = 1
 
 " ==> exVim <==
 	"source ~/.vim/.vimrc_ex
