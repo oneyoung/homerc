@@ -13,4 +13,7 @@ autocmd FileType python source ~/.vim/script/python_fold.vim
 let python_highlight_all=1
 autocmd FileType python syntax keyword Special self
 
+" disable annoying '#' auto indent
+autocmd FileType python set nosmartindent
+
 pyfile ~/.vim/python/stream.py
