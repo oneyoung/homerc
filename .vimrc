@@ -103,31 +103,6 @@ set listchars=tab:>.,trail:-
 	let jbrowser_cpp_ctags_args = '--language-force=c++ --c++-types=fc'
 	let jbrowser_cpp_tag_types = 'class function'
 
-" ==> vimwiki <==
-	" paste block
-	map <C-P> <ESC>o{{{class="brush: cpp" ><CR><ESC>gpo}}}<ESC>
-	"create the link page
-	map <C-L> <ESC>dwi[[<ESC>pbea]]<ESC>
-	"bold the word
-	map <C-B> <ESC>dwi*<ESC>pbea*<ESC>
-	let g:vimwiki_use_mouse=1
-	let g:vimwiki_list = [{'path': '/home/oneyoung/vimwiki/',
-	\ 'html_header': '/home/oneyoung/vimwiki_html/header.tpl',
-	\ 'path_html': '/home/oneyoung/vimwiki_html/',
-	\ 'auto_export': 1 ,
-	\ 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'c': 'c'} }]
-
-	let g:vimwiki_list_ignore_newline=0
-	"let g:vimwiki_list = [{'html_header': '~/vimwiki_html/header.tpl'}]
-	"let wiki = {}
-	"let wiki.path = 'vimwiki'
-	"let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c': 'c'}
-	"let g:vimwiki_list = [wiki]
-
-	"for armasm plugin
-	"let asmsyntax='armasm'
-	"let filetype_inc='armasm'
-
 " ==> taglist <==
 	set updatetime=1000
 
