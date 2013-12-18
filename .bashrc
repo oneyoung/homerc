@@ -142,9 +142,5 @@ PS2="\[\e[1;32m\]>\[\e[0m\]"
 export XMODIFIERS="@im=fcitx"
 export XIM="fcitx"
 export XIM_PROGRAM="fcitx"
-### chsdir start ###
-. $HOME/bin/chs_completion
+
 PATH=$PATH:$HOME/bin
-#export CHSDIR="{'n':'l'}"
-complete -o filenames -F _filedir_xspec file
-### chsdir finish. ###
