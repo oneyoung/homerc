@@ -31,6 +31,9 @@ set fdc=4
 set list
 set listchars=tab:>.,trail:-
 
+" spell checking, default off
+set spell spelllang=en_us
+set nospell
 
 " ###############>>Plugins<<###################
 " ==> cscope <==
