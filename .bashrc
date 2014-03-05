@@ -134,13 +134,17 @@ alias ssh1="~/ssh.sh 2 &"
 alias htclog='adb pull /mnt/sdcard/htclog .'
 alias fdubbs='luit -encoding gbk telnet bbs.fudan.edu.cn'
 alias makearm='make ARCH=arm CROSS_COMPILE=arm-eabi-'
+alias e='exit'
+alias an='export PATH=~/bin/android:$PATH'
 
 PS1='`a=$?;if [ $a -ne 0 ]; then a="  "$a; echo -ne "\[\e[s\e[1A\e[$((COLUMNS-2))G\e[33m\e[1;41m${a:(-3)}\e[u\]\[\e[0m\e[47m\e[2m\]"; fi`\[\e[1;30m\]\u:\[\e[36m\]\w\[\e[32m\]\$\[\e[0m\]'
 PS2="\[\e[1;32m\]>\[\e[0m\]"
 
 #for input method
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
-export XIM="fcitx"
-export XIM_PROGRAM="fcitx"
+
+export EDITOR=vim
 
 PATH=$PATH:$HOME/bin
