@@ -16,7 +16,7 @@ autocmd FileType python syntax keyword Special self
 " disable annoying '#' auto indent
 autocmd FileType python set nosmartindent
 
-pyfile ~/.vim/python/stream.py
+"pyfile ~/.vim/python/stream.py
 
 " disable pymode repo autocomplete in python, let YCM handle it.
 let g:pymode_rope_completion = 0
