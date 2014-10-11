@@ -148,3 +148,5 @@ export XMODIFIERS="@im=fcitx"
 export EDITOR=vim
 
 PATH=$PATH:$HOME/bin
+export PATH=$HOME/dev/android/sdk/platform-tools:$HOME/dev/android/sdk/tools:$PATH
+export ACS_EXECUTION_CONFIG_PATH=/home/oneyoung/Intel/ACS/acs_fwk/src/_ExecutionConfig

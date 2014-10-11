@@ -132,6 +132,9 @@ set nospell
 " ==> txt2tags <==
 	au BufNewFile,BufRead *.t2t set ft=txt2tags
 
+" ==> pathogen <==
+call pathogen#infect()
+
 " ==> python <==
 	source ~/.vimrc_py
 
