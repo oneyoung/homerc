@@ -4,6 +4,7 @@
 
 #the path where oneyoung's scripts lie.
 script_path=~/scripts
+export PATH=$PATH:$script_path
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -119,23 +120,14 @@ fi
 #}
 #end
 
-source ${script_path}/env.sh
-export PATH=$PATH:$script_path
 UNZIP="-O CP936"
 ZIPINFO="-O CP936"
 
-#for exVim
-#export EX_DEV=/usr/bin/vim
-
-alias foxit='wine /home/oneyoung/.wine/drive_c/Program\ Files/Foxit\ Reader.exe 2>/dev/null &'
 alias hl='ls -hl'
 alias df='df -h'
-alias ssh1="~/ssh.sh 2 &"
-alias htclog='adb pull /mnt/sdcard/htclog .'
 alias fdubbs='luit -encoding gbk telnet bbs.fudan.edu.cn'
 alias makearm='make ARCH=arm CROSS_COMPILE=arm-eabi-'
 alias e='exit'
-alias an='export PATH=~/bin/android:$PATH'
 
 PS1='`a=$?;if [ $a -ne 0 ]; then a="  "$a; echo -ne "\[\e[s\e[1A\e[$((COLUMNS-2))G\e[33m\e[1;41m${a:(-3)}\e[u\]\[\e[0m\e[47m\e[2m\]"; fi`\[\e[1;30m\]\u:\[\e[36m\]\w\[\e[32m\]\$\[\e[0m\]'
 PS2="\[\e[1;32m\]>\[\e[0m\]"
@@ -148,5 +140,6 @@ export XMODIFIERS="@im=fcitx"
 export EDITOR=vim
 
 PATH=$PATH:$HOME/bin
-export PATH=$HOME/dev/android/sdk/platform-tools:$HOME/dev/android/sdk/tools:$PATH
-export ACS_EXECUTION_CONFIG_PATH=/home/oneyoung/Intel/ACS/acs_fwk/src/_ExecutionConfig
+
+# if machine specified bashrc exists, load it.
+[ -f ~/._bashrc ] && source ~/._bashrc
