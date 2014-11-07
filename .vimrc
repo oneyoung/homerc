@@ -27,6 +27,9 @@ set smarttab
 set fdm=indent
 set fdc=4
 
+" fix tab can't be deleted after auto indent to new line
+set backspace=indent,eol,start
+
 " display the tab and end char
 set list
 set listchars=tab:>.,trail:-
@@ -203,3 +206,4 @@ command Cclear call setqflist([])
 " filetype support for django template
 autocmd BufNewFile,BufRead *.html,*.django,*.htmldjango  call Html_autocmd()
 autocmd BufNewFile,BufRead *.c,*.h  set ts=8 sw=8
+autocmd BufNewFile,BufRead *.java set expandtab
