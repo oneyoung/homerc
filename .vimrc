@@ -138,6 +138,10 @@ set nospell
 " ==> pathogen <==
 call pathogen#infect()
 
+" ==> YouCompleteMe <==
+" co-work with eclim
+	let g:EclimCompletionMethod = 'omnifunc'
+
 " ==> python <==
 	source ~/.vimrc_py
 
