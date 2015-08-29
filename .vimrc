@@ -17,6 +17,9 @@ set mouse=a
 set number
 set foldmethod=indent
 
+" clipboard settings for new version
+set clipboard=unnamed
+
 " indent
 set autoindent
 set smartindent
