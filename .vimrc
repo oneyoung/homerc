@@ -139,7 +139,14 @@ set nospell
 	au BufNewFile,BufRead *.t2t set ft=txt2tags
 
 " ==> pathogen <==
+" Pathogen load
+filetype off
+
 call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
 
 " ==> YouCompleteMe <==
 " co-work with eclim
