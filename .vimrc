@@ -148,6 +148,31 @@ call pathogen#infect()
 " ==> python <==
 	source ~/.vimrc_py
 
+" ==> vim-javascript <==
+" for VIM >= 7.4
+set regexpengine=1
+syntax enable
+" Enables HTML/CSS syntax highlighting in your JavaScript file
+let g:javascript_enable_domhtmlcss = 1
+" Enables JavaScript code folding
+let b:javascript_fold = 1
+" " customize concealing characters
+let g:javascript_conceal_function   = "ƒ"
+let g:javascript_conceal_null       = "ø"
+let g:javascript_conceal_this       = "@"
+let g:javascript_conceal_return     = "⇚"
+let g:javascript_conceal_undefined  = "¿"
+let g:javascript_conceal_NaN        = "ℕ"
+let g:javascript_conceal_prototype  = "¶"
+let g:javascript_conceal_static     = "•"
+let g:javascript_conceal_super      = "Ω"
+
+" ==> javascript-libraries-syntax <==
+let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,jasmine'
+
+" ==> jshint <==
+let JSHintUpdateWriteOnly = 1
+
 
 " ###############>>Functions<<###################
 function Fix_coding_style()
