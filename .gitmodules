@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
-[submodule ".vim/bundle/javascript-libraries-syntax"]
-	path = .vim/bundle/javascript-libraries-syntax
-	url = https://github.com/othree/javascript-libraries-syntax.vim
 [submodule ".vim/bundle/tern_for_vim"]
 	path = .vim/bundle/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim

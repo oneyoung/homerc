@@ -172,6 +172,7 @@ let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,jasmine'
 
 " ==> jshint <==
 let JSHintUpdateWriteOnly = 1
+let g:JSHintHighlightErrorLine = 0
 
 
 " ###############>>Functions<<###################
@@ -236,6 +237,7 @@ command Cclear call setqflist([])
 
 " ###############>>autocmd<<###################
 " filetype support for django template
-autocmd BufNewFile,BufRead *.html,*.django,*.htmldjango  call Html_autocmd()
+autocmd BufNewFile,BufRead *.django,*.htmldjango  call Html_autocmd()
+autocmd BufNewFile,BufRead *.html,*.css,*.js  set ts=2 sw=2 expandtab
 autocmd BufNewFile,BufRead *.c,*.h  set ts=8 sw=8
 autocmd BufNewFile,BufRead *.java set expandtab
