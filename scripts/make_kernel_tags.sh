@@ -19,7 +19,6 @@
 
 
 source_file=/tmp/source.list
-include_file=/tmp/include.list
 output_file=cscope.files
 source_file_temp=/tmp/source_file_temp
 output_file_temp=/tmp/output.temp
@@ -32,7 +31,7 @@ then
         echo "INFO: clean the kernel"
         make clean
         echo "INFO: make kernel, it may take a few minutes, please wait"
-        make ARCH=arm CROSS_COMPILE=arm-eabi- CFLAGS_KERNEL=-H -j4 1>$source_file 2>$include_file
+        make ARCH=arm CROSS_COMPILE=arm-eabi- CFLAGS_KERNEL=-H -j4 | tee $source_file | grep "^ "
         if [ $? -ne 0 ]
                 then
                 echo -e "\033[31mERR: ########make process failed! #############\033[0m" #highlight the error message in red 
@@ -42,13 +41,12 @@ then
 
         #for test
         #source_file=source.list
-        #include_file=include.list
         #output_file=cscope.files
         #source_file_temp=/tmp/source_file_temp
 
         echo "INFO: get the file list"
         # generate the include file
-        grep "^\.\+\ " $include_file | awk '{print $NF}' | sort -u >$output_file
+        grep "^\.\+\ " $source_file | awk '{print $NF}' | sort -u >$output_file
 
         # generate the source file
         grep "\(\<CC\>\|\<AS\>\|LOGO\)" $source_file | awk '{print $NF}' >$source_file_temp
@@ -73,7 +71,7 @@ then
                         fi
                 done
 
-        rm $output_file_temp $source_file_temp $source_file $include_file
+        rm $output_file_temp $source_file_temp $source_file
         rm cscope.*out* 2>/dev/null
 fi
 
@@ -88,6 +86,9 @@ ctags -L $output_file
 
 #script_path -- the path contains vim_fntags.sh 
 #NOTE it is a global varibles which export by .bashrc
-vim_fntags.sh
+which vim_fntags.sh 2>&1 > /dev/null
+if [ $? -eq 0 ]; then
+    vim_fntags.sh
+fi
 
 echo "INFO: All DONE!"
