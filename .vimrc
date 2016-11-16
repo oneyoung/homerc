@@ -248,3 +248,4 @@ autocmd BufNewFile,BufRead *.django,*.htmldjango  call Html_autocmd()
 autocmd BufNewFile,BufRead *.html,*.css,*.js  set ts=2 sw=2 expandtab
 autocmd BufNewFile,BufRead *.c,*.h  set ts=8 sw=8
 autocmd BufNewFile,BufRead *.java set expandtab
+autocmd BufNewFile,BufRead *.yml *.yaml set ft=ansible
